@@ -4,26 +4,5 @@
 <div class="container to-arabic-side contact-us">
     <h2 class="alsdi-gold-font-color">{{page.header}}</h2>
     <p class="alsdi-purple-font-color">{{page.paragraph}}</p>
-    <div class="alsdi-d-flex-column-reverse">
-    {% for section in page.sections.all %}
-    <div class="alsdi-col">
-      <div class="card alsdi-h-100 white ">
-        <div class="card-stacked">
-             {% if section.image %}
-                <div class="card-image">
-                    <img class="materialboxed" src="{{ section.image.url }}">
-                </div>
-            {% endif %}
-            <div class="card-content">
-                <h3 class="alsdi-gold-font-color center">{{section.section_header}}</h3>
-                <p class="alsdi-purple-font-color to-arabic-side">{{ section.section_paragraph }}</p>
-            </div>
-        </div>
-      </div>
-    </div>  
-    {% endfor %}
-    </div>
-    
-    
 </div>
 {% endblock content %}
