@@ -25,7 +25,7 @@ SECRET_KEY = '6gu6z3xme84m=0j4+@t6^)gb1ob*1vr@+ii0_8a%tll%tbdhya'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['zikosama.pythonanywhere.com']
 
 
 # Application definition
