@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>{{ title }}</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="{% static 'css/alsdi/style.css' %}"  type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="alsdi-nav white lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">
+    <img src="{{ logo.image.url }}" class='alsdi-logo' alt="الصدي للاستشارات الهندسية">
+    </a>
+      <ul class="navbar-links right hide-on-med-and-down">
+        {% for link in links  %}
+            <li><a href="{{link.nav_link}}">{{ link.link_name }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav sidenav-links">
+        {% for link in links  %}
+            <li><a href="{{link.nav_link}}">{{ link.link_name }}</a></li>
+        {% endfor %}
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons menu-icon">menu</i></a>
+    </div>
+  </nav>
+  <div class="page-content">
+    {% block content %}
+    {% endblock content %}
+  </div>
+  </div>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row remove-margin">
+        <div class="col l4 s12">
+          <div class="footer-logo_thumbnail">
+            <img src="{{ logo.image.url }}" class='alsdi-logo' alt="الصدي للاستشارات الهندسية">
+          </div>
+        </div>
+        <div class="col l8 s12">
+          <h5 class="to-arabic-side alsdi-gold-font-color">{{footer.section_header}}</h5>
+          <p class="to-arabic-side alsdi-purple-font-color">{{ footer.section_paragraph}}</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{% static 'js/alsdi/init.js' %}"></script>
+
+  </body>
+</html>

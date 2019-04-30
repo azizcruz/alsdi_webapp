@@ -1,0 +1,166 @@
+body {
+  font-family: "DroidArabicKufiRegular";
+}
+
+img {
+  width: 100%;
+}
+
+/* Start Main page style */
+.alsdi-nav,
+nav a.sidenav-trigger i {
+  height: 180px;
+  box-shadow: none;
+}
+
+nav a.sidenav-trigger i {
+  line-height: 180px;
+}
+
+.navbar-links {
+  padding-top: 70px;
+}
+
+.sidenav {
+  text-align: right;
+}
+
+.menu-icon {
+  color: #c59a3b;
+  font-size: 3rem !important;
+}
+
+.navbar-links a,
+.sidenav li > a {
+  color: #c59a3b;
+  font-size: 1.5rem;
+}
+
+nav ul a:hover {
+  background-color: #3c3863;
+}
+
+.navbar-links li:hover,
+.sidenav-links li:hover {
+  border-bottom: 2px solid #c59a3b;
+}
+
+.alsdi-slider .slider .slides li .caption {
+  top: auto;
+  left: auto;
+  bottom: 15%;
+  right: 0%;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.alsdi-slider .slider .indicators .indicator-item.active {
+  background-color: #c59a3b;
+}
+
+/* End Main page style */
+
+/* Start contact us style */
+.contact-us ul {
+  margin: 0;
+  padding: 0;
+}
+
+.contact-us ul li {
+  display: inline-block;
+  padding: 5px;
+}
+/* End contact us style */
+
+/* Start our services style */
+.our-services .card-image.card-image-text-ordering {
+  order: 1 !important;
+}
+
+.our-services .card-stacked.vertically-centered-items {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.our-services .card-image img {
+  max-height: 500px;
+}
+
+.our-services .card-content {
+  padding: 14px;
+}
+/* End our services style */
+
+/* Start Alsdi Framework */
+.page-content {
+  min-height: 80vh;
+}
+
+.page-footer {
+  min-height: 10vh;
+  background-color: white;
+  color: #c59a3b;
+}
+.to-arabic-side {
+  text-align: right;
+}
+.alsdi-logo {
+  width: 180px;
+}
+.remove-margin {
+  margin: 0;
+}
+
+.alsdi-gold-font-color {
+  color: #c59a3b;
+}
+
+.alsdi-purple-font-color {
+  color: #3c3863;
+}
+
+.contact-us h2,
+.our-services h2 {
+  border-bottom: 2px solid #c59a3b;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.contact-us-icon:hover {
+  color: #c59a3b;
+  transition: color 0.2s ease-in-out;
+}
+
+.alsdi-d-flex-column-reverse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+@media only screen and (max-width: 600px) {
+  .alsdi-d-flex-column-reverse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.alsdi-col {
+  padding: 10px;
+}
+
+.alsdi-h-100 {
+  height: 100% !important;
+}
+/* End Alsdi Framework */
