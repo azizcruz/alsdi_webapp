@@ -1,24 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="alsdi-slider container">
-    <div class="slider">
-        <ul class="slides">
+<div class="alsdi-slider">
+    <div class="carousel carousel-slider">
         {% for slide in slides %}
-            
-                <li>
-                    <img src="{{ slide.image.url }}"> 
-                    <div class="caption right-align">
-                    <h3>{{ slide.header }}</h3>
-                    <h5 class="light grey-text text-lighten-3">{{ slide.paragraph }}</h5>
-                    </div>
-                </li>
-                
+            <div class="carousel-item carousel-item-image" href="#" style="background-image: url({{ slide.image.url }})">
+                <div class="text-wrapper to-arabic-side">
+                    <h1 class="white-text">{{ slide.header }}</h1>
+                    <p class="white-text">{{ slide.paragraph }}</p>
+                </div>
+            </div>
         {% endfor %}
         </ul>
   </div>
+</div> 
+<div class="alsdi-big-border"></div>
+<div class="container">
+<div class="section to-arabic-side">
+    <h2 class='alsdi-gold-font-color alsdi-header'>{{ our_motto_section.section_header }}</h2>
+    <div class="blocks-content-wrapper alsdi-d-flex alsdi-flex-column">
+        {% for ablock in our_motto_section.blocks.all  %}
+            <div class="card alsdi-d-flex hoverable" data-aos="{% cycle 'fade-left' 'fade-right' %}" data-aos-duration="2000">
+            <div class="icon-section alsdi-w-25 {% cycle '' 'alsdi-card-icon-order' %}">
+                <div class="alsdi-center-text alsdi-justify-content-center alsdi-align-items-center alsdi-h-100 alsdi-d-flex">
+                    <i class="{{ ablock.icon }} fa-5x alsdi-gold-font-color"></i>
+                </div>
+            </div>
+            <div class="card-content">
+            <span class="card-title alsdi-gold-font-color">{{ ablock.header }}</span>
+            <p class="alsdi-purple-font-color">{{ ablock.paragraph }}</p>
+            </div>
+      </div>
+        {% endfor %}
 </div>
-    
-
-  
+</div>
 {% endblock content %}

@@ -5,8 +5,9 @@ from .models import (
     NavbarLinks,
     Slider,
     Section,
-    Contact
-)
+    Contact, 
+    SectionBlock, 
+    )
 
 # Register your models here.
 
@@ -22,6 +23,7 @@ class SliderAdmin(admin.ModelAdmin):
 admin.site.register(Page)
 admin.site.register(Logo)
 admin.site.register(Contact)
+admin.site.register(SectionBlock)
 admin.site.register(Section)
 admin.site.register(NavbarLinks, NavbarAdmin)
 admin.site.register(Slider, SliderAdmin)

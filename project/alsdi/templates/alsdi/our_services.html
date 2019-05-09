@@ -9,7 +9,7 @@
             {% for section in page.sections.all %}
                 <div class="col s12 m12">
                     <div class="hide-on-small-only">
-                        <div class="card horizontal">
+                        <div class="card horizontal" data-aos="{% cycle 'fade-up-right' 'fade-up-left' %}" data-aos-duration="2000">
                                 <div class="card-image {% cycle 'card-image-text-ordering' '' %}">
                                 <img class="materialboxed" src="{{ section.image.url }}">
                                 </div>

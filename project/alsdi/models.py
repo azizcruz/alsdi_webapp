@@ -52,8 +52,19 @@ class Section(models.Model):
     def __str__(self):
         return self.section_header
 
+class SectionBlock(models.Model):
+    header = models.CharField(max_length=255, blank=True)
+    paragraph = models.TextField(blank=True)
+    image = models.ImageField(upload_to='section_images', blank=True)
+    icon = models.CharField(max_length=255, blank=True)
+    section = models.ForeignKey(Section, related_name='blocks', on_delete=models.CASCADE, default="")
+    weight = models.IntegerField(default=0)
+
     class Meta:
         ordering = ('weight',)
+
+    def __str__(self):
+        return self.header
 
 
 class Contact(models.Model):
