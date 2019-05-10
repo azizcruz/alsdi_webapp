@@ -32,6 +32,23 @@
             </div>
       </div>
         {% endfor %}
+
+            <div class="section to-arabic-side">
+                <h2 class='alsdi-gold-font-color alsdi-header'>{{ our_statistics.section_header }}</h2>
+                <div class="blocks-content-wrapper alsdi-d-flex alsdi-flex-row">
+                {% for ablock in our_statistics.blocks.all  %}
+                    <div class="card alsdi-statistics-card hoverable">
+                    <div class="icon-section">
+                        <div class="alsdi-center-text">
+                            <div class="counter alsdi-gold-font-color alsdi-center-text alsdi-big-number">{{ ablock.paragraph }}</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                    <span class="card-title alsdi-purple-font-color alsdi-center-text">{{ ablock.header }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
 </div>
 </div>
 {% endblock content %}

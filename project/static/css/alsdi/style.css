@@ -1,5 +1,5 @@
 body {
-  font-family: "DroidArabicKufiRegular", sans-serif;
+  font-family: "droid-sans", sans-serif;
 }
 
 img {
@@ -209,7 +209,25 @@ nav ul a:hover {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
-  flex-direction: row
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.alsdi-statistics-card {
+  padding: 10px;
+  max-width: 300px;
+  width: 300px;
+}
+
+.alsdi-big-number {
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .alsdi-justify-content-center {
@@ -246,6 +264,12 @@ nav ul a:hover {
 
 .alsdi-w-100 {
   max-width: 100% !important;
+}
+
+.background-animation {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
 }
 /* End Alsdi Framework */
 

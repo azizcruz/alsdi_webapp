@@ -17,11 +17,13 @@ class Index(View):
         page = Page.objects.get(page_name='الرئيسية')
         slides = Slider.objects.all()
         our_motto_section = Section.objects.prefetch_related('blocks').get(section_header='شعارنا')
+        our_statistics = Section.objects.prefetch_related('blocks').get(section_header='احصائياتنا')
         context = {
             'page': page,
             'links': get_navbar_link(),
             'logo': get_site_logo(),
             'our_motto_section': our_motto_section,
+            'our_statistics': our_statistics,
             'slides': slides,
             'footer': get_footer_data(),
             'title': 'الرئيسية'

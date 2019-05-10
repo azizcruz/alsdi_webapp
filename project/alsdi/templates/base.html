@@ -4,6 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <link rel="stylesheet" type="text/css" href="//www.fontstatic.com/f=droid-sans">
   {% comment %} <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/> {% endcomment %}
   <title>{{ title }}</title>
 
@@ -15,6 +16,8 @@
   <link href="{% static 'css/alsdi/style.css' %}"  type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
+
+<div id="particles-js" class="background-animation"></div>
 
 <div class="outer-loader-wrapper" id="loading-spinner">
   <div class="lds-css ng-scope">
@@ -63,8 +66,12 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+  <script src="{% static 'js/alsdi/countUp.js' %}"></script>
+  <script src="{% static 'js/alsdi/particles.min.js' %}"></script>
   <script src="{% static 'js/alsdi/init.js' %}"></script>
 
   </body>
