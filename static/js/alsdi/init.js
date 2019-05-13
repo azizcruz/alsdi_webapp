@@ -38,7 +38,7 @@ $(document).ready(function(){
       backDelay: 7000,
       loop: true,
       showCursor: false,
-      loopCount: Infinity
+      loopCount: Infinity,
     }); 
 
     $(".rslides").responsiveSlides({

@@ -304,6 +304,10 @@ nav ul a:hover {
   text-align: center !important
 }
 
+.typed-names {
+  margin-left: -15px;
+}
+
 .alsdi-w-100 {
   max-width: 100% !important;
 }
