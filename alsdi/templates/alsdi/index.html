@@ -57,22 +57,24 @@
 <div class="section to-arabic-side testimonials-image" style="background-image: url('{{ testimonials.image.url }}')">
     <div class="alsdi-overlay">
         <div class="container">
-        <h2 class='alsdi-gold-font-color alsdi-header'>{{ testimonials.section_header }}</h2>
-        <h3 class="white-text alsdi-center-text">
-            <span class="typed-cursor typed-cursor--blink">|</span>
-            <span class="typed-names"></span>
-        </h3>
-        <ul id="names-list" class="alsdi-d-none">
-            {% for name in testimonials.blocks.all %}
-                <li>{{name.header}}</li>
-            {% endfor %}
-        </ul>
+            <h2 class='alsdi-gold-font-color alsdi-header'>{{ testimonials.section_header }}</h2>
+        <div class="alsdi-d-flex alsdi-flex-column" style="margin-top: 70px;">
+                <h3 class="white-text alsdi-center-text">
+                    <span class="typed-cursor typed-cursor--blink">|</span>
+                    <span class="typed-names"></span>
+                </h3>
+                <ul id="names-list" class="alsdi-d-none">
+                    {% for name in testimonials.blocks.all %}
+                        <li>{{name.header}}</li>
+                    {% endfor %}
+                </ul>
 
-        <ul class="rslides white-text alsdi-center-text">
-            {% for name in testimonials.blocks.all %}
-                <li>{{name.paragraph}}</li>
-            {% endfor %}
-        </ul>
+                <ul class="rslides white-text alsdi-center-text">
+                    {% for name in testimonials.blocks.all %}
+                        <li class="alsdi-quote-text">&ldquo; {{name.paragraph}} &rdquo;</li>
+                    {% endfor %}
+                </ul>
+        </div>
     </div>
     </div>
 </div>

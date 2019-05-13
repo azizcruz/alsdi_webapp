@@ -43,7 +43,7 @@ $(document).ready(function(){
 
     $(".rslides").responsiveSlides({
       auto: true,
-      timeout: 8000,
+      timeout: 8500,
     });
 
     // Auto play for main page carousel
