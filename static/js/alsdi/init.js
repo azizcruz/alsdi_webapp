@@ -41,6 +41,11 @@ $(document).ready(function(){
       loopCount: Infinity
     }); 
 
+    $(".rslides").responsiveSlides({
+      auto: true,
+      timeout: 8000,
+    });
+
     // Auto play for main page carousel
     autoplay()
     function autoplay() {
