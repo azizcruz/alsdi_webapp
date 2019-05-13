@@ -24,7 +24,22 @@ $(document).ready(function(){
 
     particlesJS.load('particles-js', BASE_URL + '/static/js/alsdi/particles.json', function() {
       console.log('callback - particles.js config loaded');
-    });  
+    });
+
+    // Initialize typed js
+
+    var names = $("#names-list li").map(function() {return $.trim($(this).text());
+    }).get();
+
+    var typed = new Typed('.typed-names', {
+      strings: names,
+      typeSpeed: 30,
+      backSpeed: 30,
+      backDelay: 7000,
+      loop: true,
+      showCursor: false,
+      loopCount: Infinity
+    }); 
 
     // Auto play for main page carousel
     autoplay()
