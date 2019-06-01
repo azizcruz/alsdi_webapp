@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('alsdi.urls'))
+    path('api/ar/', include('alsdi.urls'))
 ]
 
 if settings.DEBUG:

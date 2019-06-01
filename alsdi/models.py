@@ -19,15 +19,45 @@ class NavbarLinks(models.Model):
         verbose_name_plural = 'navbar links'
         ordering = ('weight',)
 
+class Album(models.Model):
+    album_name = models.CharField(max_length=255)
+    section = models.ForeignKey('alsdi.Section', related_name='albums', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.album_name
+
+class ImagesAlbum(models.Model):
+    image_name = models.CharField(max_length=255)
+    image = models.ImageField(default='album_images/default_image.png', upload_to='album_images')
+    album = models.ForeignKey('alsdi.Album', related_name='image',on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image_name
+
+    class Meta:
+        verbose_name_plural = 'The images of the albums'
+
 class Slider(models.Model):
-    slide = models.CharField(max_length=255)
+    slider_name = models.CharField(max_length=255)
+    section = models.ForeignKey('alsdi.Section', related_name='sliders', on_delete=models.CASCADE)
+    weight = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.slider_name
+
+    class Meta:
+        verbose_name_plural = 'Sliders'
+        ordering = ('weight',)
+
+class Slide(models.Model):
+    slider = models.ForeignKey('alsdi.Slider', related_name='slides', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='carousel_images', blank=True)
     header = models.CharField(max_length=255, blank=True)
     paragraph = models.TextField(blank=True)
     weight = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.slide
+        return self.header
 
     class Meta:
         verbose_name_plural = 'Slides'
@@ -46,7 +76,7 @@ class Section(models.Model):
     section_header = models.CharField(max_length=255, blank=True)
     section_paragraph = models.TextField(blank=True)
     image = models.ImageField(upload_to='section_images', blank=True)
-    page = models.ForeignKey(Page, related_name='sections', on_delete=models.CASCADE, default="")
+    page = models.ForeignKey('alsdi.Page', related_name='sections', on_delete=models.CASCADE, default="")
     weight = models.IntegerField(default=0)
 
     def __str__(self):
@@ -83,4 +113,13 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
+class Project(models.Model):
+    project_name = models.CharField(max_length=255)
+    project_address = models.TextField()
+    is_done = models.BooleanField(default=False)
+    project_images = models.OneToOneField('alsdi.Album', on_delete=models.CASCADE)
+    date_created = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.project_name
     

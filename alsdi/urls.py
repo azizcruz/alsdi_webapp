@@ -1,12 +1,11 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
+from django.urls import path, include
 from . import views
 
-app_name = 'alsdi'
+router = DefaultRouter()
+router.register(r'pages', views.ListPages)
+router.register(r'projects', views.ListProjects)
 
 urlpatterns = [
-    path('', views.Index.as_view(), name='index'),
-    path('our-services/', views.OurServices.as_view(), name='our-services'),
-    path('about-us/', views.AboutUs.as_view(), name='about-us'),
-    path('contact-us/', views.ContactUs.as_view(), name='contact-us'),
+    path('', include(router.urls))
 ]
-
