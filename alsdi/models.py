@@ -10,6 +10,7 @@ class Logo(models.Model):
 class NavbarLinks(models.Model):
     link_name = models.CharField(max_length=255)
     nav_link = models.CharField(max_length=255)
+    page = models.ForeignKey('alsdi.page', related_name='navbar_links', on_delete=models.CASCADE, blank=True, null=True)
     weight = models.IntegerField(default=0)
 
     def __str__(self):
@@ -63,11 +64,11 @@ class Slide(models.Model):
         verbose_name_plural = 'Slides'
         ordering = ('weight',)
 
-
 class Page(models.Model):
     page_name = models.CharField(max_length=255)
     header = models.CharField(max_length=255, blank=True)
     paragraph = models.TextField(blank=True)
+    page_language = models.CharField(max_length=255)
 
     def __str__(self):
         return self.page_name
@@ -96,7 +97,6 @@ class SectionBlock(models.Model):
     def __str__(self):
         return self.header
 
-
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     whatsapp_number = models.CharField(max_length=255, blank=True)
@@ -109,6 +109,7 @@ class Contact(models.Model):
     telephone_number2 = models.CharField(max_length=255, blank=True)
     email = models.CharField(max_length=255, blank=True)
     address = models.TextField(blank=True)
+    page = models.ManyToManyField('alsdi.Page', related_name='contact_us', blank=True)
 
     def __str__(self):
         return self.name
