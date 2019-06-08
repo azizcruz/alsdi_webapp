@@ -3,6 +3,7 @@ from django.db import models
 class Logo(models.Model):
     logo_name = models.CharField(max_length=255)
     image = models.ImageField(default='logos/default_logo.png', upload_to='logos')
+    page = models.ForeignKey('alsdi.page', related_name='logo', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.logo_name
