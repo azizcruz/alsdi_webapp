@@ -18,10 +18,11 @@ class ImageAlbumSerializer(serializers.ModelSerializer):
 
 class AlbumSerializer(serializers.ModelSerializer):
     image = ImageAlbumSerializer(many=True, read_only=True)
+    project_id = serializers.IntegerField(source='project.id')
     class Meta:
         depth = 1
         model = Album
-        fields = ('album_name', 'image')
+        fields = ('project_id', 'album_name', 'image')
 
 class SlideSerializer(serializers.ModelSerializer):
     class Meta:
