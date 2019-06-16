@@ -24,28 +24,36 @@ class SendEmail(APIView):
     def post(self, request, *args, **kwargs):
         if request.method == "POST":
             subject = request.data.get("subject", "")
-            from_email = request.data.get("from", "")
-            message = request.data.get("message", "")
-            phone_number = request.data.get("phone_num", "")
-            full_name = request.data.get("full_name", "")
+            from_email = request.data.get("email", "")
+            message = request.data.get("msg", "")
+            phone_number = request.data.get("phoneNum", "")
+            full_name = request.data.get("fullName", "")
             to = "admin@alsdi.com"
 
-            try:
-                # Send data to email template and get email template.
-                html_email_template = get_template("email_template.html").render(
-                {
-                    "from": from_email,
-                    "subject": subject,
-                    "message": message,
-                    "phone_num": phone_number,
-                    "full_name": full_name
+            # Validate coming data.
+            if len(subject) > 0 and \
+                len(from_email) > 0 and \
+                len(message) > 0 and \
+                len(phone_number) > 0 and \
+                phone_number.isdigit():
+
+                try:
+                    # Send data to email template and get email template.
+                    html_email_template = get_template("email_template.html").render(
+                    {
+                        "from": from_email,
+                        "subject": subject,
+                        "message": message,
+                        "phone_num": phone_number,
+                        "full_name": full_name
                     }
-                )
-                msg = EmailMultiAlternatives("رسالة من زوار الموقع", "nothing", from_email, [to])
-                msg.attach_alternative(html_email_template, "text/html")
-                msg.send()
-                return Response({"detail": "Your message was sent"}, status=status.HTTP_200_OK)
-                
-            except BadHeaderError:
-                return Response({"detail": "Invalid header found."}, status=status.HTTP_400_BAD_REQUEST)
-            
+                    )
+                    msg = EmailMultiAlternatives(f"{subject} - رسالة من زوار الموقع", "nothing", from_email, [to])
+                    msg.attach_alternative(html_email_template, "text/html")
+                    msg.send()
+                    return Response({"detail": "Your message was sent"}, status=status.HTTP_200_OK)
+
+                except BadHeaderError:
+                    return Response({"detail": "Invalid header found."}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({"detail": "Data is invalid"}, status=status.HTTP_400_BAD_REQUEST)
