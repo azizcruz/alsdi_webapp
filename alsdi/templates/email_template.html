@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>رسالة جديدة</title>
+</head>
+<style>
+    body {
+        text-align: right;
+    }
+</style>
+<body>
+    <div style="max-width: 600px; margin: 50px auto">
+        <h2 style="text-align: center;">رسالة من زوار الموقع</h2>
+        <br />
+        <p style="text-align: center;">==== معلومات المرسل ====</p>
+        <br />
+        <strong><p>:اسم المرسل</p><span>{{ full_name }}</span></strong>
+        <strong><p>:ايميل المرسل</p><span><a href="mailto:{{ from }}">{{ from }}</a></span></strong>
+        <strong><p>:رقم هاتف المرسل </p>{{ phone_num }}</span></strong>
+        <p>========================</p>
+        <br />
+        <p>عنوان الرسالة</p>
+        <p><strong>{{ subject }}</strong></p>
+        <p>:نص الرسالة</p>
+        <p>{{ message }}</p>
+        <br />
+    </div>
+</body>
+</html>

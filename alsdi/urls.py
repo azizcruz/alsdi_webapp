@@ -7,5 +7,6 @@ router.register(r'pages', views.ListPages)
 router.register(r'projects', views.ListProjects)
 
 urlpatterns = [
+    path('sendmail/', views.SendEmail.as_view(), name="send-mail"),
     path('', include(router.urls))
 ]
