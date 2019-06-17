@@ -5,7 +5,7 @@ from rest_framework import status
 from .models import Page, Project
 from .serializers import PageSerializer, ProjectSerializer
 from rest_framework.permissions import AllowAny
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives, BadHeaderError
 from django.template.loader import get_template
 from django.conf import settings
 from django.template import Context
