@@ -5,6 +5,10 @@ class Logo(models.Model):
     image = models.ImageField(default='logos/default_logo.png', upload_to='logos')
     page = models.ForeignKey('alsdi.page', related_name='logo', on_delete=models.CASCADE, blank=True, null=True)
 
+    class Meta:
+        verbose_name_plural = 'شعار الموقع'
+        verbose_name = 'شعار الموقع'
+
     def __str__(self):
         return self.logo_name
 
@@ -18,12 +22,17 @@ class NavbarLinks(models.Model):
         return self.link_name
 
     class Meta:
-        verbose_name_plural = 'navbar links'
+        verbose_name_plural = 'روابط النافبار'
+        verbose_name = 'روابط النافبار'
         ordering = ('weight',)
 
 class Album(models.Model):
     album_name = models.CharField(max_length=255)
     section = models.ForeignKey('alsdi.Section', related_name='albums', on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'البومات الصور'
+        verbose_name = 'البومات الصور'
 
     def __str__(self):
         return self.album_name
@@ -37,7 +46,8 @@ class ImagesAlbum(models.Model):
         return self.image_name
 
     class Meta:
-        verbose_name_plural = 'The images of the albums'
+        verbose_name_plural = 'صور الالبومات'
+        verbose_name = 'صور الالبومات'
 
 class Slider(models.Model):
     slider_name = models.CharField(max_length=255)
@@ -48,7 +58,8 @@ class Slider(models.Model):
         return self.slider_name
 
     class Meta:
-        verbose_name_plural = 'Sliders'
+        verbose_name_plural = 'سلايدر'
+        verbose_name = 'سلايدر'
         ordering = ('weight',)
 
 class Slide(models.Model):
@@ -62,7 +73,8 @@ class Slide(models.Model):
         return self.header
 
     class Meta:
-        verbose_name_plural = 'Slides'
+        verbose_name_plural = 'سلايد'
+        verbose_name = 'سلايد'
         ordering = ('weight',)
 
 class Page(models.Model):
@@ -70,6 +82,10 @@ class Page(models.Model):
     header = models.CharField(max_length=255, blank=True)
     paragraph = models.TextField(blank=True)
     page_language = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = 'الصفحات'
+        verbose_name_plural = 'الصفحات'
 
     def __str__(self):
         return self.page_name
@@ -80,6 +96,11 @@ class Section(models.Model):
     image = models.ImageField(upload_to='section_images', blank=True)
     page = models.ForeignKey('alsdi.Page', related_name='sections', on_delete=models.CASCADE, default="")
     weight = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = 'جزئية'
+        verbose_name_plural = 'جزئية'
+        ordering = ('weight',)
 
     def __str__(self):
         return self.section_header
@@ -93,6 +114,8 @@ class SectionBlock(models.Model):
     weight = models.IntegerField(default=0)
 
     class Meta:
+        verbose_name = 'بلوكات الجزئية'
+        verbose_name_plural = 'بلوكات الجزئية'
         ordering = ('weight',)
 
     def __str__(self):
@@ -112,6 +135,10 @@ class Contact(models.Model):
     address = models.TextField(blank=True)
     page = models.ManyToManyField('alsdi.Page', related_name='contact_us', blank=True)
 
+    class Meta:
+        verbose_name = 'عناوين التواصل'
+        verbose_name_plural = 'عنواين التواصل'
+
     def __str__(self):
         return self.name
 
@@ -122,6 +149,26 @@ class Project(models.Model):
     project_images = models.OneToOneField('alsdi.Album', on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = 'المشاريع'
+        verbose_name_plural = 'المشاريع'
+        ordering = ('-date_created',)
+
     def __str__(self):
         return self.project_name
-    
+
+class Article(models.Model):
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    image = models.ImageField(upload_to='articles_images', blank=True)
+    page = models.ManyToManyField('alsdi.Page', related_name='articles')
+    is_published = models.BooleanField(default=False)
+    date_created = models.DateField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'اخر الاخبار'
+        verbose_name_plural = 'اخر الاخبار'
+        ordering = ('-date_created',)
+
+    def __str__(self):
+        return self.title

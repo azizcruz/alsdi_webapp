@@ -1,5 +1,21 @@
 from rest_framework import serializers
-from .models import Page, Section, Slider, Slide, Album, ImagesAlbum, Project, NavbarLinks, Logo
+from .models import (Page, 
+    Section, 
+    Slider, 
+    Slide, 
+    Album, 
+    ImagesAlbum, 
+    Project, 
+    NavbarLinks, 
+    Logo, 
+    Article,
+    SectionBlock
+)
+
+class ArticleSeriaizer(serializers.ModelSerializer):
+    class Meta:
+        model = Article
+        fields = '__all__'
 
 class LogoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -47,11 +63,12 @@ class SectionSerializer(serializers.ModelSerializer):
 class PageSerializer(serializers.ModelSerializer):
     sections = SectionSerializer(many=True, read_only=True)
     navbar_links = NavbarLinksSerializer(many=True, read_only=True)
+    articles = ArticleSeriaizer(many=True, read_only=True)
 
     class Meta:
         depth = 1
         model = Page
-        fields = ('page_name', 'header', 'paragraph', 'sections', 'navbar_links', 'logo', 'contact_us')
+        fields = ('page_name', 'header', 'paragraph', 'sections', 'navbar_links', 'logo', 'contact_us', 'articles')
 
 class ProjectSerializer(serializers.ModelSerializer):
     project_images = AlbumSerializer()

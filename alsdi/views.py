@@ -2,8 +2,8 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Page, Project
-from .serializers import PageSerializer, ProjectSerializer
+from .models import Page, Project, Article
+from .serializers import PageSerializer, ProjectSerializer, ArticleSeriaizer
 from rest_framework.permissions import AllowAny
 from django.core.mail import EmailMultiAlternatives, BadHeaderError
 from django.template.loader import get_template
@@ -17,6 +17,10 @@ class ListPages(ModelViewSet):
 class ListProjects(ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+
+class ListArticles(ModelViewSet):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSeriaizer
 
 class SendEmail(APIView):
     permission_classes = [AllowAny]
