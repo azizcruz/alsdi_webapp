@@ -163,6 +163,7 @@ class Article(models.Model):
     image = models.ImageField(upload_to='articles_images', blank=True)
     page = models.ManyToManyField('alsdi.Page', related_name='articles')
     is_published = models.BooleanField(default=False)
+    is_new_article = models.BooleanField(default=True)
     date_created = models.DateField(auto_now_add=True)
 
     class Meta:
