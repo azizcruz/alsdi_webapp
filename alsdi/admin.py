@@ -37,6 +37,18 @@ class ProjectAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_published', 'date_created')
     list_filter = ('date_created',)
+    fieldsets = (
+        (
+            None, {
+            'fields': ('title',),
+            }
+        ),
+        (
+            None, {
+                'fields': ('content',)
+            }
+        )
+    )
 
 class SectionBlockAdmin(admin.ModelAdmin):
     list_filter = ('section',)
@@ -48,13 +60,13 @@ class ImageAlbumsAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Page)
+# admin.site.register(Page)
 admin.site.register(Logo)
 admin.site.register(Contact)
 admin.site.register(SectionBlock, SectionBlockAdmin)
-admin.site.register(Section)
+# admin.site.register(Section)
 admin.site.register(NavbarLinks, NavbarAdmin)
-admin.site.register(Slider, SliderAdmin)
+# admin.site.register(Slider, SliderAdmin)
 admin.site.register(Slide, SlideAdmin)
 admin.site.register(Album)
 admin.site.register(ImagesAlbum, ImageAlbumsAdmin)

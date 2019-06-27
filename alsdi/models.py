@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 
 class Logo(models.Model):
     logo_name = models.CharField(max_length=255)
@@ -159,9 +162,9 @@ class Project(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = models.TextField(blank=True)
     image = models.ImageField(upload_to='articles_images', blank=True)
-    page = models.ManyToManyField('alsdi.Page', related_name='articles')
+    page = models.ForeignKey('alsdi.Page', related_name='articles', default=1, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=False)
     is_new_article = models.BooleanField(default=True)
     date_created = models.DateField(auto_now_add=True)
@@ -173,3 +176,5 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    
