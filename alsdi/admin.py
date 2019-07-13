@@ -11,7 +11,8 @@ from .models import (
     Album,
     ImagesAlbum,
     Project,
-    Article
+    Article,
+    Booking
     )
 
 # Register your models here.
@@ -50,6 +51,35 @@ class ArticleAdmin(admin.ModelAdmin):
         )
     )
 
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'email', 'date_sent')
+    list_filter = ('date_sent',)
+    readonly_fields = ['file1', 'file2', 'file3', 'file4', 'file5']
+    fieldsets = (
+        (
+            (
+                'معلومات شخصية', {
+                    'fields': ('full_name', 'email', 'phone_num'),
+                },
+            ),
+            (
+                'معلومات المشروع', {
+                    'fields': ('project_subject', 'project_type', 'project_quotation'),
+                },
+            ),
+            (
+                'معلومات المشروع الاضافية ان وجدت', {
+                    'fields': ('level',),
+                },
+            ),
+            (
+                'ملفات المشروع', {
+                    'fields': ('file1', 'file2', 'file3', 'file4', 'file5'),
+                },
+            )
+        )
+    )
+
 class SectionBlockAdmin(admin.ModelAdmin):
     list_filter = ('section',)
     search_fields = ('header', 'paragraph')
@@ -72,3 +102,4 @@ admin.site.register(Album)
 admin.site.register(ImagesAlbum, ImageAlbumsAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(Booking, BookingAdmin)

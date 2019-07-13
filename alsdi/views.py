@@ -61,3 +61,10 @@ class SendEmail(APIView):
                     return Response({"detail": "Invalid header found."}, status=status.HTTP_400_BAD_REQUEST)
             else:
                 return Response({"detail": "Data is invalid"}, status=status.HTTP_400_BAD_REQUEST)
+
+class Booking(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        # import pdb;pdb.set_trace()
+        pass

@@ -1,6 +1,6 @@
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from .validators import validate_file_size
+
 
 
 class Logo(models.Model):
@@ -176,5 +176,29 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+class Booking(models.Model):
+    email = models.EmailField(max_length=255)
+    full_name = models.CharField(max_length=255)
+    phone_num = models.CharField(max_length=50)
+    project_subject = models.CharField(max_length=50, verbose_name="عنوان المشروع")
+    project_type = models.CharField(max_length=50, verbose_name="نوع المشروع")
+    project_quotation = models.CharField(max_length=50, verbose_name="نطاق التسعير")
+    level = models.CharField(max_length=50, blank=True, null=True, verbose_name="مستوى التشطيب")
+    date_sent = models.DateTimeField(auto_now=True, verbose_name="تاريخ الارسال")
+    file1 = models.FileField(verbose_name="المخططات المعمارية", upload_to="booking_files", validators=[validate_file_size], default="default.png")
+    file2 = models.FileField(verbose_name="المخططات الانشائية", upload_to="booking_files", validators=[validate_file_size], default="default.png")
+    file3 = models.FileField(verbose_name="جداول الكميات", upload_to="booking_files", validators=[validate_file_size], default="default.png")
+    file4 = models.FileField(verbose_name="المواصفات الفنية", upload_to="booking_files", validators=[validate_file_size], default="default.png")
+    file5 = models.FileField(verbose_name="رخصة البناء", upload_to="booking_files", validators=[validate_file_size], default="default.png")
+
+    class Meta:
+        verbose_name = 'المواعيد'
+        verbose_name_plural = 'المواعيد'
+        ordering = ('-date_sent',)
+
+    def __str__(self):
+        return self.full_name
+
 
     
