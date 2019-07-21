@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>رسالة جديدة</title>
+</head>
+<body style='text-align: right;'>
+<div style="max-width: 600px; margin: 50px auto">
+    <h2 style="text-align: center;"> {{full_name}} - رسالة حجز موعد من </h2>
+    <br/>
+    <p style="text-align: center;">==== معلومات المرسل ====</p>
+    <br/>
+    <strong><p>:اسم المرسل</p><span>{{full_name}}</span></strong>
+    <strong><p>:ايميل المرسل</p><span><a href="mailto:{{email}}">{{email}}</a></span></strong>
+    <strong><p>:رقم هاتف المرسل </p><span>{{phone_num}}</span></strong>
+    <p>========================</p>
+    <br/>
+    <p>عنوان الرسالة</p>
+    <p><strong>{{project_subject}}</strong></p>
+    <p>:نص الرسالة  <br />(ان وجد)</p>
+    <p>{{msg}}</p>
+    <p>:نوع المشروع</p>
+    <p>{{project_type}}</p>
+    <p>========================</p>
+    <p>:التسعير</p>
+    <p>{{project_quoutation}}</p>
+    <p>========================</p>
+    <p>:مستوى التشطيب  <br /> (ان وجد)</p>
+    <p>{{level}}</p>
+    <br/>
+</div>
+</body>
+</html>
