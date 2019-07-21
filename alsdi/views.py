@@ -128,7 +128,8 @@ class BookingView(APIView):
                     "project_type": project_type,
                     "level": level,
                 })
-                msg = EmailMessage(f"{full_name} - رسالة حجز موعد من ", body, email, ['abdelaziz.abdelioua@gmail.com'])
+                to = "admin@alsdi.com"
+                msg = EmailMessage(f"{full_name} - رسالة حجز موعد من ", body, email, [to])
                 msg.attach(filename=file1.name, content=file1.read(), mimetype=file1.content_type)
                 msg.attach(filename=file2.name, content=file2.read(), mimetype=file2.content_type)
                 msg.attach(filename=file3.name, content=file3.read(), mimetype=file3.content_type)
