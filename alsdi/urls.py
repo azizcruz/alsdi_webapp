@@ -9,6 +9,6 @@ router.register(r'articles', views.ListArticles)
 
 urlpatterns = [
     path('sendmail/', views.SendEmail.as_view(), name="send-mail"),
-    path('newbooking/', views.Booking.as_view(), name="booking"),
+    path('newbooking/', views.BookingView.as_view(), name="booking"),
     path('', include(router.urls))
 ]

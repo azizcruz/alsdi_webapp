@@ -181,6 +181,7 @@ class Booking(models.Model):
     email = models.EmailField(max_length=255)
     full_name = models.CharField(max_length=255)
     phone_num = models.CharField(max_length=50)
+    message = models.TextField(blank=True)
     project_subject = models.CharField(max_length=50, verbose_name="عنوان المشروع")
     project_type = models.CharField(max_length=50, verbose_name="نوع المشروع")
     project_quotation = models.CharField(max_length=50, verbose_name="نطاق التسعير")

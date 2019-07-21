@@ -144,10 +144,11 @@ REST_FRAMEWORK = {
 }
 
 # Email Settings.
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv('SADI_EMAIL')
-EMAIL_HOST_PASSWORD = os.getenv('SADI_PASS')
+EMAIL_HOST_USER = 'abdelaziz.abdelioua@gmail.com'
+EMAIL_HOST_PASSWORD = 'hnaabdelaziz77?'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
